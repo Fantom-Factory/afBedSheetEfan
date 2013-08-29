@@ -1,10 +1,9 @@
-# afEfan
+# afBedSheetEfan
 
-afEfan is a [Fantom](http://fantom.org/) [afIoc](http://repo.status302.com/doc/afIoc/#overview) library for rendering Embedded Fantom (efan) templates.
+`afBedSheetEfan` is a [Fantom](http://fantom.org) library that integrates [efan](http://repo.status302.com/doc/afEfan/#overview) templates with the
+[afBedSheet](http://repo.status302.com/doc/afBedSheet/#overview) web framework.
 
-Much like EJS for Javascript, ERB for Ruby and JSP for Java, EFAN allows you to embed snippets of Fantom code inside textual templates.
-
-Efan hopes to hit the middle ground between programmatically rendering markup with `web::WebOutStream` and using logicless templates with [Mustache](https://bitbucket.org/xored/mustache/).
+`afBedSheetEfan` provides a cache of your compiled [efan](http://repo.status302.com/doc/afEfan/#overview) renderers, integrates into [afBedSheet](http://repo.status302.com/doc/afBedSheet/#overview)'s Err 500 page and lets you contribute efan view helpers on an application level.
 
 
 
@@ -31,15 +30,15 @@ Fantom code:
 
 ## Documentation
 
-Full API & fandocs are available on the [status302 repository](http://repo.status302.com/doc/afEfan/#overview).
+Full API & fandocs are available on the [status302 repository](http://repo.status302.com/doc/afBedSheetEfan/#overview).
 
 
 
 ## Install
 
-Download from [status302](http://repo.status302.com/browse/afEfan).
+Download from [status302](http://repo.status302.com/browse/afBedSheetEfan).
 
 Or install via fanr:
 
-    $ fanr install -r http://repo.status302.com/fanr/ afEfan
+    $ fanr install -r http://repo.status302.com/fanr/ afBedSheetEfan
 
