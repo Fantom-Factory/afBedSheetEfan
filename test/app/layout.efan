@@ -1,0 +1,11 @@
+<head>
+  <title><%= ctx["pageTitle"] %></title>
+</head>
+<body>
+  <div> header </div>
+  <div> menu stuff </div>
+
+  <% renderBody %>
+
+  <div> footer </div>
+</body>

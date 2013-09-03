@@ -1,0 +1,7 @@
+<html>
+<% renderEfan(ctx["layout"], ctx["layoutCtx"]) { %>
+  <div>
+    ...my cool page content...
+  </div>
+<% } %>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= ctx["pageTitle"] %></title>
+	<style>
+		<%= ctx["css"] %>
+	</style>
+</head>
+<body>	
+	<header>
+		<%= ctx.alienHead %>
+	</header>
+	
+	<main>
+		<%= ctx["content"] %>
+	</main>
+
+	<footer>
+		<a href="http://repo.status302.com/doc/afBedSheet/#overview">Alien-Factory BedSheet</a>
+	</footer>
+</body>
+</html>
