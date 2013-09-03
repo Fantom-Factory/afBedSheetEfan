@@ -27,5 +27,6 @@ internal const class EfanModule {
 	static Void contributeFactoryDefaults(MappedConfig config) {
 		config[EfanConfigIds.templateTimeout]	= 10sec
 		config[EfanConfigIds.srcCodePadding]	= 5
+		config[EfanConfigIds.ctxVarName]		= "ctx"
 	}
 }

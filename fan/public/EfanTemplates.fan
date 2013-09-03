@@ -31,13 +31,19 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 	
 	@Inject	@Config { id="afEfan.srcCodePadding" } 	
 	private const Int srcCodePadding	
+	
+	@Inject	@Config { id="afEfan.ctxVarName" } 	
+	private const Str ctxVarName
 
 	@Inject	private const EfanViewHelpers 	viewHelpers
 
 	internal new make(|This|in) {
 		in(this) 
 		fileCache 	= FileCache(templateTimeout)
-		compiler	= EfanCompiler() { it.srcCodePadding = this.srcCodePadding }
+		compiler	= EfanCompiler() { 
+			it.ctxVarName 		= this.ctxVarName 
+			it.srcCodePadding	= this.srcCodePadding 			
+		}
 	}
 
 	override Str renderFromStr(Str efan, Obj? ctx := null) {

@@ -21,4 +21,8 @@ const mixin EfanConfigIds {
 	** Defaults to '5'
 	static const Str srcCodePadding		:= "afEfan.srcCodePadding"
 
+	** The name given to the 'ctx' variable in the render method.
+	** Defaults to 'ctx'
+	static const Str ctxVarName		:= "afEfan.ctxVarName"
+
 }
