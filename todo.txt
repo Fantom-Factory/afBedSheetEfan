@@ -1,8 +1,4 @@
 
-For v1.0
---------
-EfanErr wraps compilation Err - pretty print both
-
 For v1.0.2
 ----------
 use afIoc to make() the renderers - Can Helpers define afIoc services? (need to add facets to plastic)
