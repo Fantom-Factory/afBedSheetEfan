@@ -25,7 +25,7 @@ internal const class EfanModule {
 
 	@Contribute { serviceType=FactoryDefaults# }
 	static Void contributeFactoryDefaults(MappedConfig config) {
-		config[EfanConfigIds.templateTimeout]		= 10sec
-		config[EfanConfigIds.linesOfSrcCodePadding]	= 5
+		config[EfanConfigIds.templateTimeout]	= 10sec
+		config[EfanConfigIds.srcCodePadding]	= 5
 	}
 }

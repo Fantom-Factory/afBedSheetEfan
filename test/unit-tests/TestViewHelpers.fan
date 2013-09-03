@@ -10,24 +10,6 @@ internal class TestViewHelpers : EfanTest {
 		super.setup
 	}
 	
-	Void testHelpersAreMixins() {
-		verifyEfanErrMsg(ErrMsgs.viewHelperMixinIsNotMixin(Int#)) {
-			vh := EfanViewHelpersImpl([Int#]) { }
-		}		
-	}
-	
-	Void testHelpersAreConst() {
-		verifyEfanErrMsg(ErrMsgs.viewHelperMixinIsNotConst(T_Vh1#)) {
-			vh := EfanViewHelpersImpl([T_Vh1#]) { }
-		}		
-	}
-
-	Void testHelpersArePublic() {
-		verifyEfanErrMsg(ErrMsgs.viewHelperMixinIsNotPublic(T_Vh2#)) {
-			vh := EfanViewHelpersImpl([T_Vh2#]) { }
-		}		
-	}
-	
 	Void testMultipleViewHelpers() {
 		template := "<%= a() %> <%= b %>"
 		output	 := efan.renderFromStr(template, null)
@@ -36,18 +18,12 @@ internal class TestViewHelpers : EfanTest {
 }
 
 @NoDoc
-mixin T_Vh1 {}
-
-@NoDoc
-internal const mixin T_Vh2 {}
-
-@NoDoc
-const mixin T_Vh3 {
+mixin T_Vh3 {
 	Str a() { "Judge" }
 }
 
 @NoDoc
-const mixin T_Vh4 {
+mixin T_Vh4 {
 	Str b() { "Dredd" }
 }
 

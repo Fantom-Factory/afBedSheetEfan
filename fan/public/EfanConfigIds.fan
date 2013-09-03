@@ -14,11 +14,11 @@ const mixin EfanConfigIds {
 
 	** The time before the file system is checked for template updates.
 	** Defaults to '10sec'
-	static const Str templateTimeout		:= "afBedSheet.efan.templateTimeout"
+	static const Str templateTimeout	:= "afEfan.templateTimeout"
 
-	** When printing a `EfanErr`s, this is the number of lines of code to print before and 
+	** When printing an `EfanErr`, this is the number of lines of code to print before and 
 	** after the line in error. 
 	** Defaults to '5'
-	static const Str linesOfSrcCodePadding		:= "afBedSheet.efan.linesOfSrcCodePadding"
+	static const Str srcCodePadding		:= "afEfan.srcCodePadding"
 
 }

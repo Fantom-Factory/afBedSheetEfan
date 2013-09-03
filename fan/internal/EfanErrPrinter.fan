@@ -7,8 +7,8 @@ using web::WebOutStream
 
 internal const class EfanErrPrinter {
 	
-	@Inject	@Config { id="afBedSheet.efan.linesOfSrcCodePadding" } 	
-	private const Int linesOfSrcCodePadding
+	@Inject	@Config { id="afEfan.srcCodePadding" } 	
+	private const Int srcCodePadding
 	
 	new make(|This|in) { in(this) }
 	
@@ -24,11 +24,11 @@ internal const class EfanErrPrinter {
 		out.h2.w(title).h2End
 		
 		out.p.w(srcErrLoc.srcLocation).w(" : Line ${srcErrLoc.errLineNo}").br
-		out.w("&nbsp&nbsp;-&nbsp;").writeXml(srcErrLoc.errMsg).pEnd
+		out.w("&nbsp;&nbsp;-&nbsp;").writeXml(srcErrLoc.errMsg).pEnd
 		
 		out.div("class=\"srcLoc\"")
 		out.table
-		srcErrLoc.srcCodeSnippetMap(linesOfSrcCodePadding).each |src, line| {
+		srcErrLoc.srcCodeSnippetMap(srcCodePadding).each |src, line| {
 			if (line == srcErrLoc.errLineNo) { out.tr("class=\"errLine\"") } else { out.tr }
 			out.td.w(line).tdEnd.td.w(src.toXml).tdEnd
 			out.trEnd
@@ -47,7 +47,7 @@ internal const class EfanErrPrinter {
 
 	Void printStrErr(StrBuf buf, Str title, SrcErrLocation srcErrLoc) {
 		buf.add("\n${title}:\n")
-		buf.add(srcErrLoc.srcCodeSnippet(linesOfSrcCodePadding))		
+		buf.add(srcErrLoc.srcCodeSnippet(srcCodePadding))		
 	}
 
 }
