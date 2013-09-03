@@ -1,7 +1,7 @@
 Overview [#overview]
 ********************
 'afBedSheetEfan' is a Fantom library that integrates [efan]`http://repo.status302.com/doc/afEfan/#overview` templates with the
-[afBedSheet](http://repo.status302.com/doc/afBedSheet/#overview) web framework.
+[afBedSheet]`http://repo.status302.com/doc/afBedSheet/#overview` web framework.
 
 'afBedSheetEfan' provides a cache of your compiled [efan]`http://repo.status302.com/doc/afEfan/#overview` renderers, integrates
 into [afBedSheet]`http://repo.status302.com/doc/afBedSheet/#overview`'s Err 500 page and lets you contribute efan view helpers
@@ -23,12 +23,12 @@ pre>
 
 Fantom code:
 pre>
-  @Inject EfanTemplates efanTemplates
+  @Inject EfanTemplates efan
 
   ...
 
   // --> Ho! Ho! Ho! Merry Christmas!
-  txt := efanTemplates.renderFromFile(`xmas.efan`.toFile, 3)
+  txt := efan.renderFromFile(`xmas.efan`.toFile, 3)
 <pre
 
 
@@ -38,7 +38,7 @@ Usage [#usage]
 To use 'afBedSheetEfan' just add it as dependency in your project's 'build.fan'. Example:
 
 pre>
-depends = ["sys 1.0", "afIoc 1.4+", "afBedSheet 1.0+", "afBedSheetEfan 0.0.2+", ... ]
+depends = ["sys 1.0", "afIoc 1.4+", "afBedSheet 1.0+", "afBedSheetEfan 1.0+", ... ]
 <pre
 
 ...and that's it!
@@ -114,8 +114,9 @@ modifying template files in live.
 Release Notes [#releaseNotes]
 *****************************
 
-v0.0.2 [#v0.0.2]
+v1.0.0 [#v1.0.0]
 ----------------
- - New: Preview release.
- - New: Split out from [efan]`http://repo.status302.com/doc/afEfan/#overview`.
+ - New: Code snippets from afPlastic compilation errs are also displayed in the [afBedSheet]`http://repo.status302.com/doc/afBedSheet/#overview` Err page.
+ - New: [ctxVarName]`EfanConfigIds.ctxVarName` is now configurable.
+ - Chg: Split out from [efan]`http://repo.status302.com/doc/afEfan/#overview`.
 

@@ -1,6 +1,6 @@
 using afEfan::EfanCompiler
 
-** Contribute to 'EfanViewHelpers' to add view helper methods to your efan templates.
+** Contribute to 'EfanViewHelpers' to add view helpers to your efan templates.
 const mixin EfanViewHelpers { 
 	abstract internal Type[] mixins()
 }
