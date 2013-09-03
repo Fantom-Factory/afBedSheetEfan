@@ -5,14 +5,14 @@ class Build : BuildPod {
 	new make() {
 		podName = "afBedSheetEfan"
 		summary = "A library for integrating Embedded Fantom (efan) templates with the afBedSheet web framework."
-		version = Version([1,0,0])
+		version = Version([1,0,1])
 
 		meta	= [	"org.name"		: "Alien-Factory",
 					"org.uri"		: "http://www.alienfactory.co.uk/",
 					"vcs.uri"		: "https://bitbucket.org/AlienFactory/afbedsheetefan",
 					"proj.name"		: "AF-BedSheetEfan",
 					"license.name"	: "BSD 2-Clause License",
-					"repo.private"	: "false",	// Eeek!
+					"repo.private"	: "true",
 			
 					"afIoc.module"	: "afBedSheetEfan::EfanModule"			
 				]
