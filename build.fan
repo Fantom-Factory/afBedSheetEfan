@@ -20,8 +20,8 @@ class Build : BuildPod {
 		index	= [	"afIoc.module"	: "afBedSheetEfan::EfanModule"
 				]
 
-		depends = ["sys 1.0", "compiler 1.0", "web 1.0", 
-					"afIoc 1.4.4+", "afBedSheet 1.0+", "afEfan 1.0+"]
+		depends = ["sys 1.0", "web 1.0", 
+					"afIoc 1.4.4+", "afBedSheet 1.0+", "afEfan 1.0+", "afPlastic 0+"]
 		srcDirs = [`test/unit-tests/`, `test/app-tests/`, `test/app/`, `fan/`, `fan/public/`, `fan/internal/`, `fan/internal/utils/`]
 		resDirs = [`doc/`]
 
