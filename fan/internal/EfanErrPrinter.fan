@@ -1,6 +1,6 @@
 using afIoc::Inject
-using afEfan::PlasticCompilationErr
-using afEfan::SrcErrLocation
+using afPlastic::PlasticCompilationErr
+using afPlastic::SrcErrLocation
 using afEfan::EfanParserErr
 using afEfan::EfanCompilationErr
 using afBedSheet::Config
