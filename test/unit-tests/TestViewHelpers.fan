@@ -18,12 +18,12 @@ internal class TestViewHelpers : EfanTest {
 }
 
 @NoDoc
-mixin T_Vh3 {
+const mixin T_Vh3 {
 	Str a() { "Judge" }
 }
 
 @NoDoc
-mixin T_Vh4 {
+const mixin T_Vh4 {
 	Str b() { "Dredd" }
 }
 
