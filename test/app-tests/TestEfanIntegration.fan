@@ -1,12 +1,18 @@
 using afIoc
 using afBedSheet
+using afEfan
 
 internal class TestEfanIntegration : Test {
 
 	BedClient? client
 	
+	@Inject
+	EfanCompiler? compiler
+	
 	override Void setup() {
-		client = BedServer(T_AppModule#).startup.makeClient
+		server := BedServer(T_AppModule#).addModule(T_EfanMod#).startup
+		server.injectIntoFields(this)
+		client = server.makeClient
 	}
 
 	override Void teardown() {
@@ -15,7 +21,6 @@ internal class TestEfanIntegration : Test {
 
 	Void testWebOkay() {
 		res := client.get(`/efanOkay/Beards!`)
-		Env.cur.err.printLine(res.asStr)
 		verify(res.asStr.contains("<title>Beards!</title>"))
 	}
 
@@ -25,4 +30,15 @@ internal class TestEfanIntegration : Test {
 		verify(res.asStr.contains("<h2>Efan Compilation Err</h2>"))
 		verify(res.asStr.contains("<h2>Plastic Compilation Err</h2>"))
 	}
+	
+	Void testCompilerHasConfig() {
+		verifyEq(compiler.srcCodePadding, 50)		
+	}
+}
+
+internal class T_EfanMod {
+	@Contribute { serviceType=ApplicationDefaults# }
+	static Void contributeApplicationDefaults(MappedConfig config) {
+		config[EfanConfigIds.srcCodePadding]	= 50
+	}	
 }
