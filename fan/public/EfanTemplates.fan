@@ -29,7 +29,7 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 	@Inject @Config { id="afEfan.templateTimeout" }
 	private const Duration templateTimeout
 	
-	@Inject	@Config { id="afEfan.srcCodePadding" } 	
+	@Inject	@Config { id="afBedSheet.plastic.srcCodeErrPadding" } 	
 	private const Int srcCodePadding	
 	
 	@Inject	@Config { id="afEfan.ctxVarName" } 	
