@@ -23,7 +23,7 @@ internal class TestTemplates : EfanTest {
 			output := efan.renderFromFile(file, T_Val2() { it.val = 3 } )
 			fail
 		} catch (EfanCompilationErr err) {
-			verifyEq(err.srcErrLoc.errLineNo, 17)
+			verifyEq(err.errLineNo, 17)
 		}
 	}
 }
