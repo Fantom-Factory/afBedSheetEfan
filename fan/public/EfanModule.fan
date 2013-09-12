@@ -5,14 +5,16 @@ using afBedSheet::ConfigSource
 using afBedSheet::FactoryDefaults
 using web::WebOutStream
 
-// FIXME: fandoc, public 'cos so it may be ref'ed from tetss in other projs
+** The [afIoc]`http://repo.status302.com/doc/afIoc/#overview` module class.
 const class EfanModule {
 
+	@NoDoc
 	static Void bind(ServiceBinder binder) {
 		binder.bindImpl(EfanTemplates#).withoutProxy	// has default method args
 		binder.bindImpl(EfanViewHelpers#).withoutProxy
 	}
 
+	@NoDoc
 	@Build { serviceId="EfanCompiler" }
 	static EfanCompiler buildEfanCompiler(ConfigSource config) {
 		EfanCompiler() {
@@ -21,6 +23,7 @@ const class EfanModule {
 		}
 	}
 
+	@NoDoc
 	@Contribute { serviceType=FactoryDefaults# }
 	static Void contributeFactoryDefaults(MappedConfig config) {
 		config[EfanConfigIds.templateTimeout]	= 10sec

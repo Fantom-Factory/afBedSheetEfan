@@ -13,7 +13,7 @@ See [efan]`http://repo.status302.com/doc/afEfan/#overview` for Embedded Fantom d
 
 Quick Start [#quickStart]
 *************************
-xmas.efan:
+xmas.html.efan:
 pre>
   <% ctx.times |i| { %>
     Ho!
@@ -21,14 +21,23 @@ pre>
   Merry Christmas!
 <pre
 
-Fantom code:
+IndexPage.fan:
 pre>
-  @Inject EfanTemplates efan
+using afIoc::Inject
+using afBedSheet::Text
+using afBedSheetEfan::EfanTemplates
 
-  ...
+class IndexPage {
 
-  // --> Ho! Ho! Ho! Merry Christmas!
-  txt := efan.renderFromFile(`xmas.efan`.toFile, 3)
+  @Inject private EfanTemplates? efan
+
+  Text render() {
+    html := efan.renderFromFile(`res/index.html.efan`.toFile, 3)
+
+    // --> Ho! Ho! Ho! Merry Christmas!
+    return Text.fromHtml(html)
+  }
+}
 <pre
 
 
