@@ -16,10 +16,10 @@ const class EfanModule {
 
 	@NoDoc
 	@Build { serviceId="EfanCompiler" }
-	static EfanCompiler buildEfanCompiler(ConfigSource config) {
+	static EfanCompiler buildEfanCompiler(ConfigSource configSrc) {
 		EfanCompiler() {
-			it.ctxVarName		= config.getCoerced(EfanConfigIds.ctxVarName, Str#)
-			it.srcCodePadding	= config.getCoerced(ConfigIds.srcCodeErrPadding, Int#)
+			it.ctxVarName		= configSrc.getCoerced(EfanConfigIds.ctxVarName, Str#)
+			it.srcCodePadding	= configSrc.getCoerced(ConfigIds.srcCodeErrPadding, Int#)
 		}
 	}
 
