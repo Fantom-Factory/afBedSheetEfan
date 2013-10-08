@@ -47,8 +47,7 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 	}
 
 	override Str renderFromStr(Str efan, Obj? ctx := null) {
-		renderType	:= compiler.compileWithHelpers(`rendered/from/str`, efan, ctx?.typeof, viewHelpers.mixins)
-		renderer	:= (EfanRenderer) renderType.make
+		renderer := compiler.compileWithHelpers(`rendered/from/str`, efan, ctx?.typeof, viewHelpers.mixins)
 		return renderer.render(ctx)
 	}
 
@@ -64,17 +63,16 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 
 		renderer := (EfanRenderer) fileCache.getOrAddOrUpdate(efanFile) |->Obj| {
 			template 	:= efanFile.readAllStr
-			renderType	:= compiler.compileWithHelpers(efanFile.normalize.uri, template, ctxType, viewHelpers.mixins)
-			renderer	:= (EfanRenderer) renderType.make
+			renderer	:= compiler.compileWithHelpers(efanFile.normalize.uri, template, ctxType, viewHelpers.mixins)
 			return renderer
 		}
 		
 		if (ctxType != null) {
-			if (renderer.ctxType == null || !ctxType.fits(renderer.ctxType)) {
-				log.warn(LogMsgs.templatesCtxDoesNotFitRendererCts(ctxType, renderer.ctxType, efanFile))
+			rendererCtxType := renderer.efanMetaData.ctxType
+			if (rendererCtxType == null || !ctxType.fits(rendererCtxType)) {
+				log.warn(LogMsgs.templatesCtxDoesNotFitRendererCtx(ctxType, rendererCtxType, efanFile))
 				template 	:= efanFile.readAllStr
-				renderType	:= compiler.compileWithHelpers(efanFile.normalize.uri, template, ctxType, viewHelpers.mixins)
-				renderer	= (EfanRenderer) renderType.make
+				renderer	= compiler.compileWithHelpers(efanFile.normalize.uri, template, ctxType, viewHelpers.mixins)
 				fileCache[efanFile] = renderer
 			}
 		}

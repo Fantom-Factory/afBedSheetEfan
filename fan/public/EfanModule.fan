@@ -4,8 +4,11 @@ using afBedSheet::ConfigIds
 using afBedSheet::ConfigSource
 using afBedSheet::FactoryDefaults
 using web::WebOutStream
+using afPlastic::PlasticCompiler
 
 ** The [afIoc]`http://repo.status302.com/doc/afIoc/#overview` module class.
+** 
+** This class is public so it may be referenced explicitly in test code.
 const class EfanModule {
 
 	@NoDoc
@@ -16,10 +19,11 @@ const class EfanModule {
 
 	@NoDoc
 	@Build { serviceId="EfanCompiler" }
-	static EfanCompiler buildEfanCompiler(ConfigSource configSrc) {
+	static EfanCompiler buildEfanCompiler(ConfigSource configSrc, PlasticCompiler plasticCompiler) {
 		EfanCompiler() {
 			it.ctxVarName		= configSrc.getCoerced(EfanConfigIds.ctxVarName, Str#)
 			it.srcCodePadding	= configSrc.getCoerced(ConfigIds.srcCodeErrPadding, Int#)
+//			it.plasticCompiler	= plasticCompiler
 		}
 	}
 
