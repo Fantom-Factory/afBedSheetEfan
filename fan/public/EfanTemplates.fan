@@ -9,8 +9,8 @@ const mixin EfanTemplates {
 
 	** Renders the given template with the ctx.
 	** 
-	** WARN: Overuse of this method could cause a memory leak! A new Fantom Type is created on 
-	** every call. 
+	** **Warning:** Overuse of this method could cause a memory leak! A new Fantom Type is created 
+	** on every call. 
 	abstract Str renderFromStr(Str efan, Obj? ctx := null)
 	
 	** Renders an '.efan' template file with the given ctx. 
@@ -76,7 +76,7 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 				fileCache[efanFile] = renderer
 			}
 		}
-		
+	
 		return renderer
 	}
 }

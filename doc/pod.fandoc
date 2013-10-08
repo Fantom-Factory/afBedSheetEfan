@@ -3,6 +3,9 @@ Overview [#overview]
 'afBedSheetEfan' is a Fantom library that integrates [efan]`http://repo.status302.com/doc/afEfan/#overview` templates with the
 [afBedSheet]`http://repo.status302.com/doc/afBedSheet/#overview` web framework.
 
+'afBedSheetEfan' uses [afIoc]`http://repo.status302.com/doc/afIoc/#overview`, therefore to use the `EfanTemplates` service you
+must '@Inject' it into your own service / class.
+
 'afBedSheetEfan' provides a cache of your compiled [efan]`http://repo.status302.com/doc/afEfan/#overview` renderers, integrates
 into [afBedSheet]`http://repo.status302.com/doc/afBedSheet/#overview`'s Err 500 page and lets you contribute efan view helpers
 on an application level.
@@ -13,7 +16,7 @@ See [efan]`http://repo.status302.com/doc/afEfan/#overview` for Embedded Fantom d
 
 Quick Start [#quickStart]
 *************************
-xmas.html.efan:
+xmas.efan:
 pre>
   <% ctx.times |i| { %>
     Ho!
@@ -32,10 +35,10 @@ class IndexPage {
   @Inject private EfanTemplates? efan
 
   Text render() {
-    html := efan.renderFromFile(`res/index.html.efan`.toFile, 3)
+    template := efan.renderFromFile(`res/index.efan`.toFile, 3)
 
     // --> Ho! Ho! Ho! Merry Christmas!
-    return Text.fromHtml(html)
+    return Text.fromPlain(template)
   }
 }
 <pre
@@ -83,8 +86,8 @@ pre>
 
 Err Reporting [#errReporting]
 *****************************
-afEfan automatically hooks into afBedSheet to give detailed reports on efan compilation errors. The reports are added to the
-default afBedSheet Err500 page.
+afEfan automatically hooks into afBedSheet to give detailed reports on efan compilation and runtime errors. The reports are
+added to the default afBedSheet Err500 page.
 
 pre>
 Efan Compilation Err:
@@ -123,8 +126,9 @@ modifying template files in live.
 Release Notes [#releaseNotes]
 *****************************
 
-v1.0.3 [#v1.0.3]
+v1.0.4 [#v1.0.4]
 ----------------
+ - Chg: Updated to use [afEfan 1.2]`http://repo.status302.com/doc/afEfan/#overview`.
  - Bug: Err msgs could produce an Err if a template file was a pod resource.
 
 v1.0.2 [#v1.0.2]

@@ -30,5 +30,6 @@ class Build : BuildPod {
  
 		// exclude test code when building the pod - this means we can have public test classes!
 		srcDirs = srcDirs.exclude { it.toStr.startsWith("test/") }
+//		resDirs = resDirs.exclude { it.toStr.startsWith("test/") }
 	}
 }
