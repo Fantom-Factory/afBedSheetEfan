@@ -1,11 +1,12 @@
 using afEfan::EfanErr
 using afIoc::Registry
 using afIoc::RegistryBuilder
+using afIocConfig::IocConfigModule
 
 abstract internal class EfanTest : Test {
 	
 	Registry? 	reg
-	Type[]		modules	:= [EfanModule#]
+	Type[]		modules	:= [IocConfigModule#, EfanModule#]
 	
 	override Void setup() {
 		reg = (Registry) RegistryBuilder(["suppressLogging":true]).addModules(modules).build(["suppressStartupMsg":true]).startup

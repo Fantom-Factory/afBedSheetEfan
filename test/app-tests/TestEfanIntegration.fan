@@ -2,6 +2,7 @@ using afIoc
 using afPlastic::PlasticCompiler
 using afBedSheet
 using afEfan
+using afIocConfig::ApplicationDefaults
 
 internal class TestEfanIntegration : Test {
 

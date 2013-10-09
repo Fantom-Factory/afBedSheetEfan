@@ -24,7 +24,7 @@ const mixin EfanTemplates {
 internal const class EfanTemplatesImpl : EfanTemplates {
 	private const static Log 	log := Utils.getLog(EfanTemplates#)
 	private const FileCache 	fileCache
-	private const EfanCompiler 	compiler
+	
 	
 	@Inject @Config { id="afEfan.templateTimeout" }
 	private const Duration templateTimeout
@@ -33,13 +33,11 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 	private const Str ctxVarName
 
 	@Inject	private const EfanViewHelpers 	viewHelpers
+	@Inject private const EfanCompiler 		compiler
 
 	internal new make(|This|in) {
 		in(this) 
 		fileCache 	= FileCache(templateTimeout)
-		compiler	= EfanCompiler() { 
-			it.ctxVarName 		= this.ctxVarName 
-		}
 	}
 
 	override Str renderFromStr(Str efan, Obj? ctx := null) {

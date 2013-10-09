@@ -1,11 +1,12 @@
 using afIoc
+using afIocConfig
 
 internal class TestViewHelpers : EfanTest {
 	
 	@Inject private EfanTemplates? efan
 	
 	override Void setup() {
-		modules = [EfanModule#, T_Mod01#]
+		modules = [IocConfigModule#, EfanModule#, T_Mod01#]
 		super.setup
 	}
 	
