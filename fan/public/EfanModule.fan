@@ -20,10 +20,10 @@ const class EfanModule {
 	@NoDoc
 	@Build { serviceId="EfanCompiler" }
 	static EfanCompiler buildEfanCompiler(ConfigSource configSrc, PlasticCompiler plasticCompiler) {
-		EfanCompiler() {
-			it.ctxVarName		= configSrc.getCoerced(EfanConfigIds.ctxVarName, Str#)
-			it.srcCodePadding	= configSrc.getCoerced(ConfigIds.srcCodeErrPadding, Int#)
-//			it.plasticCompiler	= plasticCompiler
+		// set srcCodePadding first, so it gets picked up by EfanCompiler 
+		plasticCompiler.srcCodePadding = configSrc.getCoerced(ConfigIds.srcCodeErrPadding, Int#) 
+		return EfanCompiler() {
+			it.ctxVarName = configSrc.getCoerced(EfanConfigIds.ctxVarName, Str#)
 		}
 	}
 
