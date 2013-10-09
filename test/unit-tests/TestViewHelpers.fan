@@ -1,12 +1,11 @@
 using afIoc
-using afBedSheet::BedSheetWebMod
 
 internal class TestViewHelpers : EfanTest {
 	
 	@Inject private EfanTemplates? efan
 	
 	override Void setup() {
-		modules = [EfanModule#, T_Mod01#, BedSheetWebMod#.pod.type("BedSheetModule")]
+		modules = [EfanModule#, T_Mod01#]
 		super.setup
 	}
 	

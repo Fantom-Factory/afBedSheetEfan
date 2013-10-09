@@ -1,8 +1,7 @@
 using afIoc
 using afEfan::EfanCompiler
-using afBedSheet::ConfigIds
-using afBedSheet::ConfigSource
-using afBedSheet::FactoryDefaults
+using afIocConfig::IocConfigSource
+using afIocConfig::FactoryDefaults
 using web::WebOutStream
 using afPlastic::PlasticCompiler
 
@@ -19,7 +18,7 @@ const class EfanModule {
 
 	@NoDoc
 	@Build { serviceId="EfanCompiler" }
-	static EfanCompiler buildEfanCompiler(ConfigSource configSrc, PlasticCompiler plasticCompiler) {
+	static EfanCompiler buildEfanCompiler(IocConfigSource configSrc, PlasticCompiler plasticCompiler) {
 		// rely on afBedSheet to set srcCodePadding in PlasticCompiler (to be picked up by EfanCompiler) 
 		EfanCompiler(plasticCompiler) {
 			it.ctxVarName 			= configSrc.getCoerced(EfanConfigIds.ctxVarName, Str#)
