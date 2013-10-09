@@ -29,9 +29,6 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 	@Inject @Config { id="afEfan.templateTimeout" }
 	private const Duration templateTimeout
 	
-	@Inject	@Config { id="afBedSheet.plastic.srcCodeErrPadding" } 	
-	private const Int srcCodePadding	
-	
 	@Inject	@Config { id="afEfan.ctxVarName" } 	
 	private const Str ctxVarName
 
@@ -42,7 +39,6 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 		fileCache 	= FileCache(templateTimeout)
 		compiler	= EfanCompiler() { 
 			it.ctxVarName 		= this.ctxVarName 
-			it.srcCodePadding	= this.srcCodePadding 			
 		}
 	}
 

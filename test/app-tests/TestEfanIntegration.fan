@@ -1,4 +1,5 @@
 using afIoc
+using afPlastic::PlasticCompiler
 using afBedSheet
 using afEfan
 
@@ -8,6 +9,9 @@ internal class TestEfanIntegration : Test {
 	
 	@Inject
 	EfanCompiler? compiler
+
+	@Inject
+	PlasticCompiler? plasticCompiler
 	
 	override Void setup() {
 		server := BedServer(T_AppModule#).addModule(T_EfanMod#).startup
@@ -33,7 +37,7 @@ internal class TestEfanIntegration : Test {
 	}
 	
 	Void testCompilerHasConfig() {
-		verifyEq(compiler.srcCodePadding, 50)		
+		verifyEq(plasticCompiler.srcCodePadding, 50)
 	}
 }
 
