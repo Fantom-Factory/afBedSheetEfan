@@ -32,7 +32,6 @@ internal class TestEfanIntegration : Test {
 		res := client.get(`/efanErr`)
 		verifyEq(res.statusCode, 500)
 		verify(res.asStr.contains("<h2>Efan Compilation Err</h2>"))
-//		Env.cur.err.printLine(res.asStr)
 		verify(res.asStr.contains("<h2>Plastic Compilation Err</h2>"))
 	}
 	

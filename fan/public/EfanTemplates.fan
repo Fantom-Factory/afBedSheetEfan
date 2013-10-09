@@ -2,7 +2,7 @@ using afIoc::Inject
 using afIoc::ConcurrentCache
 using afEfan::EfanCompiler
 using afEfan::EfanRenderer
-using afBedSheet::Config
+using afIocConfig::Config
 
 ** Renders Embedded Fantom (efan) templates against a given context.
 const mixin EfanTemplates {
