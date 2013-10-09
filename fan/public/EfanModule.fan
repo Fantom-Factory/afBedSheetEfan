@@ -20,9 +20,8 @@ const class EfanModule {
 	@NoDoc
 	@Build { serviceId="EfanCompiler" }
 	static EfanCompiler buildEfanCompiler(ConfigSource configSrc, PlasticCompiler plasticCompiler) {
-		// set srcCodePadding first, so it gets picked up by EfanCompiler 
-		plasticCompiler.srcCodePadding = configSrc.getCoerced(ConfigIds.srcCodeErrPadding, Int#) 
-		return EfanCompiler() {
+		// rely on afBedSheet to set srcCodePadding in PlasticCompiler (to be picked up by EfanCompiler) 
+		EfanCompiler() {
 			it.ctxVarName = configSrc.getCoerced(EfanConfigIds.ctxVarName, Str#)
 		}
 	}
