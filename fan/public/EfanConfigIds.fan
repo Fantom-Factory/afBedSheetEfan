@@ -20,4 +20,8 @@ const mixin EfanConfigIds {
 	** Defaults to 'ctx'
 	static const Str ctxVarName			:= "afEfan.ctxVarName"
 
+	** The class name given to compiled efan renderer instances.
+	** Defaults to 'EfanRendererImpl'
+	static const Str rendererClassName	:= "afEfan.rendererClassName"
+
 }

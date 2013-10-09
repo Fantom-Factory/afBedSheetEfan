@@ -21,8 +21,9 @@ const class EfanModule {
 	@Build { serviceId="EfanCompiler" }
 	static EfanCompiler buildEfanCompiler(ConfigSource configSrc, PlasticCompiler plasticCompiler) {
 		// rely on afBedSheet to set srcCodePadding in PlasticCompiler (to be picked up by EfanCompiler) 
-		EfanCompiler() {
-			it.ctxVarName = configSrc.getCoerced(EfanConfigIds.ctxVarName, Str#)
+		EfanCompiler(plasticCompiler) {
+			it.ctxVarName 			= configSrc.getCoerced(EfanConfigIds.ctxVarName, Str#)
+			it.rendererClassName	= configSrc.getCoerced(EfanConfigIds.rendererClassName, Str#)
 		}
 	}
 
@@ -31,5 +32,6 @@ const class EfanModule {
 	static Void contributeFactoryDefaults(MappedConfig config) {
 		config[EfanConfigIds.templateTimeout]	= 10sec
 		config[EfanConfigIds.ctxVarName]		= "ctx"
+		config[EfanConfigIds.rendererClassName]	= "EfanRendererImpl"
 	}
 }
