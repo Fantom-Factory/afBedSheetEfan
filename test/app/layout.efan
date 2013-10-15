@@ -5,7 +5,7 @@
   <div> header </div>
   <div> menu stuff </div>
 
-  <% renderBody() %>
+  <%= renderBody() %>
 
   <div> footer </div>
 </body>
