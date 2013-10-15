@@ -1,5 +1,5 @@
 <html>
-<% renderEfan(ctx["layout"], ctx["layoutCtx"]) { %>
+<%= ((EfanRenderer) ctx["layout"]).render(ctx["layoutCtx"]) { %>
   <div>
     ...my cool page content...
   </div>
