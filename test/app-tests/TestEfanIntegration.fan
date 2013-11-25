@@ -9,9 +9,6 @@ internal class TestEfanIntegration : Test {
 	BedClient? client
 	
 	@Inject
-	EfanCompiler? compiler
-
-	@Inject
 	PlasticCompiler? plasticCompiler
 	
 	override Void setup() {
