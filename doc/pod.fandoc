@@ -1,16 +1,19 @@
 Overview [#overview]
 ********************
-'afBedSheetEfan' is a Fantom library that integrates [efan]`http://repo.status302.com/doc/afEfan/#overview` templates with the
-[afBedSheet]`http://repo.status302.com/doc/afBedSheet/#overview` web framework.
+'BedSheetEfan' is a Fantom library that integrates [efan]`http://www.fantomfactory.org/pods/afEfan` templates with the
+[BedSheet]`http://www.fantomfactory.org/pods/afBedSheet` web framework.
 
-'afBedSheetEfan' uses [afIoc]`http://repo.status302.com/doc/afIoc/#overview`, therefore to use the `EfanTemplates` service you
+'BedSheetEfan' uses [Ioc]`http://www.fantomfactory.org/pods/afIoc`, therefore to use the `EfanTemplates` service you
 must '@Inject' it into your own service / class.
 
-'afBedSheetEfan' provides a cache of your compiled [efan]`http://repo.status302.com/doc/afEfan/#overview` renderers, integrates
-into [afBedSheet]`http://repo.status302.com/doc/afBedSheet/#overview`'s Err 500 page and lets you contribute efan view helpers
+'BedSheetEfan' provides a cache of your compiled [efan]`http://www.fantomfactory.org/pods/afEfan` renderers, integrates
+into [BedSheet]`http://www.fantomfactory.org/pods/afBedSheet`'s Err 500 page and lets you contribute efan view helpers
 on an application level.
 
-See [efan]`http://repo.status302.com/doc/afEfan/#overview` for Embedded Fantom documentation.
+See [efan]`http://www.fantomfactory.org/pods/afEfan` for Embedded Fantom documentation.
+
+> **ALIEN-AID:** Replace 'BedSheetEfan' with [efanXtra]`http://www.fantomfactory.org/pods/afEfanXtra` to create
+> managed libraries of reusable Embedded Fantom (efan) components!
 
 
 
@@ -47,16 +50,16 @@ class IndexPage {
 
 Usage [#usage]
 **************
-To use 'afBedSheetEfan' just add it as dependency in your project's 'build.fan'. Example:
+To use 'BedSheetEfan' just add it as dependency in your project's 'build.fan'. Example:
 
 pre>
-depends = ["sys 1.0", "afIoc 1.4+", "afBedSheet 1.0+", "afBedSheetEfan 1.0+", ... ]
+depends = ["sys 1.0", ... "afBedSheetEfan 1.0+" ]
 <pre
 
 ...and that's it!
 
-Because 'afBedSheetEfan' defines [pod meta-data]`http://repo.status302.com/doc/afIoc/RegistryBuilder.html` for
-[afIoc]`http://repo.status302.com/doc/afIoc/#overview`, no more configuration or setup is required.
+Because 'BedSheetEfan' defines [pod meta-data]`http://repo.status302.com/doc/afIoc/RegistryBuilder.html` for
+[Ioc]`http://www.fantomfactory.org/pods/afIoc`, no more configuration or setup is required.
 
 
 
@@ -126,27 +129,31 @@ modifying template files in live.
 Release Notes [#releaseNotes]
 *****************************
 
+v1.0.8 [#v1.0.8]
+----------------
+ - Chg: Updated to [Ioc 1.5.2]`http://www.fantomfactory.org/pods/afIoc`, [Ioc Config 1.0.2]`http://www.fantomfactory.org/pods/afIocConfig`, and [BedSheet 1.3.0]`http://www.fantomfactory.org/pods/afBedSheet`
+
 v1.0.6 [#v1.0.6]
 ----------------
- - Chg: Updated to use [afEfan 1.3]`http://repo.status302.com/doc/afEfan/#overview`.
+ - Chg: Updated to use [efan 1.3]`http://www.fantomfactory.org/pods/afEfan`.
 
 v1.0.4 [#v1.0.4]
 ----------------
  - New: The class name of efan renderer instances is now configurable.
- - Chg: Updated to use [afIocConfig]`http://repo.status302.com/doc/afIocConfig/#overview`.
- - Chg: Updated to use [afEfan 1.2]`http://repo.status302.com/doc/afEfan/#overview`.
+ - Chg: Updated to use [Ioc Config]`http://www.fantomfactory.org/pods/afIocConfig`.
+ - Chg: Updated to use [efan 1.2]`http://www.fantomfactory.org/pods/afEfan`.
  - Bug: Err msgs could produce an Err if a template file was a pod resource.
 
 v1.0.2 [#v1.0.2]
 ----------------
- - Chg: Updated to use [afPlastic]`http://repo.status302.com/doc/afPlastic/#overview`
+ - Chg: Updated to use [Plastic]`http://repo.status302.com/doc/afPlastic/#overview`
  - Chg: Updated Errs to extend 'afPlastic::SrcCodeErr'
  - Chg: Removed Err Page printing as BedSheet now does generic 'SrcCodeErr'.
  - Bug: 'EfanCompiler' was not built with contributed config values.
 
 v1.0.0 [#v1.0.0]
 ----------------
- - New: Code snippets from afPlastic compilation errs are also displayed in the [afBedSheet]`http://repo.status302.com/doc/afBedSheet/#overview` Err page.
+ - New: Code snippets from afPlastic compilation errs are also displayed in the [BedSheet]`http://www.fantomfactory.org/pods/afBedSheet` Err page.
  - New: [ctxVarName]`EfanConfigIds.ctxVarName` is now configurable.
- - Chg: Split out from [efan]`http://repo.status302.com/doc/afEfan/#overview`.
+ - Chg: Split out from [efan]`http://www.fantomfactory.org/pods/afEfan`.
 

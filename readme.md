@@ -1,9 +1,9 @@
-# afBedSheetEfan
+# BedSheetEfan
 
-`afBedSheetEfan` is a [Fantom](http://fantom.org) library that integrates [efan](http://repo.status302.com/doc/afEfan/#overview) templates with the
-[afBedSheet](http://repo.status302.com/doc/afBedSheet/#overview) web framework.
+`BedSheetEfan` is a [Fantom](http://fantom.org) library that integrates [efan](http://www.fantomfactory.org/pods/afEfan) templates with the
+[afBedSheet](http://www.fantomfactory.org/pods/afBedSheet) web framework.
 
-`afBedSheetEfan` provides a cache of your compiled [efan](http://repo.status302.com/doc/afEfan/#overview) renderers, integrates into [afBedSheet](http://repo.status302.com/doc/afBedSheet/#overview)'s Err 500 page and lets you contribute efan view helpers on an application level.
+`BedSheetEfan` provides a cache of your compiled [efan](http://www.fantomfactory.org/pods/afEfan) renderers, integrates into [afBedSheet](http://www.fantomfactory.org/pods/afBedSheet)'s Err 500 page and lets you contribute efan view helpers on an application level.
 
 
 
