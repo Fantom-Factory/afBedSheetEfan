@@ -1,7 +1,8 @@
 using afIoc
-using afPlastic::PlasticCompiler
-using afBedSheet
 using afEfan
+using afBounce
+using afBedSheet::BedSheetConfigIds
+using afPlastic::PlasticCompiler
 using afIocConfig::ApplicationDefaults
 
 internal class TestEfanIntegration : Test {
@@ -27,6 +28,7 @@ internal class TestEfanIntegration : Test {
 	}
 
 	Void testErrPageIntegration() {
+		client.errOn5xx.enabled = false
 		res := client.get(`/efanErr`)
 		verifyEq(res.statusCode, 500)
 		verify(res.asStr.contains("<h2>Efan Compilation Err</h2>"))
