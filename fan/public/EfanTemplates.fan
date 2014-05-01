@@ -1,8 +1,7 @@
-using afIoc::Inject
-using afIoc::ConcurrentCache
-using afEfan::EfanCompiler
-using afEfan::EfanRenderer
-using afIocConfig::Config
+using afConcurrent
+using afIoc
+using afIocConfig
+using afEfan
 
 ** Renders Embedded Fantom (efan) templates against a given context.
 const mixin EfanTemplates {
@@ -23,7 +22,7 @@ const mixin EfanTemplates {
 
 internal const class EfanTemplatesImpl : EfanTemplates {
 	private const static Log 	log := Utils.getLog(EfanTemplates#)
-	private const FileCache 	fileCache
+	private const SynchronizedFileMap 	fileCache
 	
 	
 	@Inject @Config { id="afEfan.templateTimeout" }
@@ -35,9 +34,9 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 	@Inject	private const EfanViewHelpers 	viewHelpers
 	@Inject private const EfanCompiler 		compiler
 
-	internal new make(|This|in) {
-		in(this) 
-		fileCache 	= FileCache(templateTimeout)
+	new make(ActorPools actorPools, |This|in) { 
+		in(this)
+		fileCache = SynchronizedFileMap(actorPools["afBedSheetEfan.fileCache"], templateTimeout)
 	}
 
 	override Str renderFromStr(Str efan, Obj? ctx := null) {
