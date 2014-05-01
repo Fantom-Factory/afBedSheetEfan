@@ -29,10 +29,12 @@ internal class TestEfanIntegration : Test {
 
 	Void testErrPageIntegration() {
 		client.errOn5xx.enabled = false
+		
 		res := client.get(`/efanErr`)
 		verifyEq(res.statusCode, 500)
-		verify(res.asStr.contains("<h2>Efan Compilation Err</h2>"))
-		verify(res.asStr.contains("<h2>Plastic Compilation Err</h2>"))
+		
+		Element("h2#efanCompilationErr"   ).verifyTextEq("Efan Compilation Err")
+		Element("h2#plasticCompilationErr").verifyTextEq("Plastic Compilation Err")
 	}
 	
 	Void testCompilerHasConfig() {
