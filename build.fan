@@ -11,7 +11,7 @@ class Build : BuildPod {
 			"proj.name"		: "BedSheet efan",
 			"afIoc.module"	: "afBedSheetEfan::EfanModule",
 			"tags"			: "templating, web",
-			"repo.private"	: "true"
+			"repo.private"	: "false"
 		]
 
 		index = [	
