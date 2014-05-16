@@ -1,8 +1,7 @@
 using concurrent
 using afIoc
-using afEfan::EfanCompiler
-using afIocConfig::IocConfigSource
-using afIocConfig::FactoryDefaults
+using afEfan
+using afIocConfig
 using afPlastic::PlasticCompiler
 
 ** The [afIoc]`http://repo.status302.com/doc/afIoc/#overview` module class.
@@ -19,7 +18,7 @@ const class EfanModule {
 	@Build { serviceId="EfanCompiler" }
 	static EfanCompiler buildEfanCompiler(IocConfigSource configSrc, PlasticCompiler plasticCompiler) {
 		// rely on afBedSheet to set srcCodePadding in PlasticCompiler (to be picked up by EfanCompiler) 
-		EfanCompiler(plasticCompiler) {
+		EfanCompiler(EfanEngine(plasticCompiler)) {
 			it.ctxVarName 			= configSrc.get(EfanConfigIds.ctxVarName, Str#)
 			it.templateClassName	= configSrc.get(EfanConfigIds.templateClassName, Str#)
 		}

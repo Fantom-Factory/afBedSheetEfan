@@ -17,6 +17,24 @@ See [efan]`pod:afEfan` for Embedded Fantom documentation.
 
 
 
+Install [#Install]
+******************
+Install '@{project.name}' with the Fantom Repository Manager ( [fanr]`docFanr::Tool.install` ):
+
+  C:\> fanr install -r http://repo.status302.com/fanr/ @{pod.name}
+
+To use in a [Fantom]`http://fantom.org/` project, add a dependency to 'build.fan':
+
+  depends = ["sys 1.0", ..., "@{pod.name} @{pod.version}+"]
+
+
+
+Documentation [#documentation]
+******************************
+Full API & fandocs are available on the [Status302 repository]`http://repo.status302.com/doc/@{pod.name}/#overview`.
+
+
+
 Quick Start [#quickStart]
 *************************
 xmas.efan:
@@ -58,7 +76,7 @@ depends = ["sys 1.0", ... "afBedSheetEfan 1.0+" ]
 
 ...and that's it!
 
-Because 'BedSheetEfan' defines [pod meta-data]`afIoc::RegistryBuilder` for [IoC]`pod:afIoc`, 
+Because 'BedSheetEfan' defines [pod meta-data]`afIoc::RegistryBuilder` for [IoC]`pod:afIoc`,
 no more configuration or setup is required.
 
 
@@ -118,7 +136,7 @@ Efan works by dynamically generating Fantom source code and compiling it into a 
 *unloaded*, if you were compile 1000s of efan templates, it could be considered a memory leak.
 
 For this reason, templates compiled from files are cached and reused, therefore posing no risk in your typical web
-application(*). But templates compiled [from Strs]`EfanTemplates.renderFromStr` are not cached and so calls to this method
+application(*). But templates compiled [from Strs]`EfanTemplates#renderFromStr` are not cached and so calls to this method
 should be made judiciously.
 
 (*) If a template file seen to be modified, the efan template is re-compiled on the fly. This is fine in dev, but be weary of
@@ -130,7 +148,7 @@ Release Notes [#releaseNotes]
 *****************************
 v1.0.12 [#v1.0.12]
 ------------------
- - Chg: Updated to use [efan 1.4]`pod:afEfan`.
+ - Chg: Updated to use [efan 1.4.0]`pod:afEfan`.
 
 v1.0.10 [#v1.0.10]
 ------------------
@@ -161,6 +179,6 @@ v1.0.2 [#v1.0.2]
 v1.0.0 [#v1.0.0]
 ----------------
  - New: Code snippets from afPlastic compilation errs are also displayed in the [BedSheet]`pod:afBedSheet` Err page.
- - New: [ctxVarName]`EfanConfigIds.ctxVarName` is now configurable.
+ - New: [ctxVarName]`EfanConfigIds#ctxVarName` is now configurable.
  - Chg: Split out from [efan]`pod:afEfan`.
 
