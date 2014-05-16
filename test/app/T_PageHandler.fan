@@ -8,8 +8,8 @@ internal const class T_PageHandler {
 	new make(|This|in) { in(this) }
 
 	Obj efanOkay(Str title) {
-		layout		:= efanTemplates.rendererForFile(`test/app/layout.efan`.toFile, Map#)
-		meat		:= efanTemplates.rendererForFile(`test/app/meat.efan`.toFile,   Map#)
+		layout		:= efanTemplates.templateFromFile(`test/app/layout.efan`.toFile, Map#)
+		meat		:= efanTemplates.templateFromFile(`test/app/meat.efan`.toFile,   Map#)
 		
 		layoutCtx	:= ["pageTitle": title]
 		meatCtx		:= ["layout": layout, "layoutCtx": layoutCtx]

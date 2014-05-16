@@ -1,8 +1,8 @@
 
 internal class LogMsgs {
 	
-	static Str templatesCtxDoesNotFitRendererCtx(Type ctx, Type rendererCtx, File file) {
-		"Ctx type ${ctx.qname} does not fit existing renderer ctx ${rendererCtx.qname} - Recompiling ${file.normalize}"
+	static Str templatesCtxDoesNotFitTemplateCtx(Type ctx, Type templateCtx, File file) {
+		"Ctx type ${ctx.qname} does not fit existing template ctx ${templateCtx.qname} - Recompiling ${file.normalize}"
 	}
 
 }

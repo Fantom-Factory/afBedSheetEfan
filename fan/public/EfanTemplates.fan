@@ -16,8 +16,13 @@ const mixin EfanTemplates {
 	** The compiled '.efan' template is cached for re-use.   
 	abstract Str renderFromFile(File efanFile, Obj? ctx := null)
 
-	** Returns (or compiles) a renderer for the given file.
-	abstract EfanRenderer rendererForFile(File efanFile, Type? ctxType := null)
+	** Returns (or compiles) a template for the given file.
+	abstract EfanTemplate templateFromFile(File efanFile, Type? ctxType := null)
+	
+	@NoDoc @Deprecated { msg = "Use tempalteFromFile() instead" }
+	EfanTemplate rendererForFile(File efanFile, Type? ctxType := null) {
+		templateFromFile(efanFile, ctxType)
+	}
 }
 
 internal const class EfanTemplatesImpl : EfanTemplates {
@@ -40,36 +45,35 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 	}
 
 	override Str renderFromStr(Str efan, Obj? ctx := null) {
-		renderer := compiler.compile(`rendered/from/str`, efan, ctx?.typeof, viewHelpers.mixins)
-		return renderer.render(ctx)
+		template := compiler.compile(`rendered/from/str`, efan, ctx?.typeof, viewHelpers.mixins)
+		return template.render(ctx)
 	}
 
 	override Str renderFromFile(File efanFile, Obj? ctx := null) {
-		renderer := rendererForFile(efanFile, ctx?.typeof)
-		
-		return renderer->render(ctx)
+		template := templateFromFile(efanFile, ctx?.typeof)
+		return template.render(ctx)
 	}
 	
-	override EfanRenderer rendererForFile(File efanFile, Type? ctxType := null) {
+	override EfanTemplate templateFromFile(File efanFile, Type? ctxType := null) {
 		if (!efanFile.exists)
 			throw IOErr(ErrMsgs.templatesFileNotFound(efanFile))
 
-		renderer := (EfanRenderer) fileCache.getOrAddOrUpdate(efanFile) |->Obj| {
-			template 	:= efanFile.readAllStr
-			renderer	:= compiler.compile(efanFile.normalize.uri, template, ctxType, viewHelpers.mixins)
-			return renderer
+		template := (EfanTemplate) fileCache.getOrAddOrUpdate(efanFile) |->Obj| {
+			templateStr	:= efanFile.readAllStr
+			template	:= compiler.compile(efanFile.normalize.uri, templateStr, ctxType, viewHelpers.mixins)
+			return template
 		}
 		
 		if (ctxType != null) {
-			rendererCtxType := renderer.efanMetaData.ctxType
-			if (rendererCtxType == null || !ctxType.fits(rendererCtxType)) {
-				log.warn(LogMsgs.templatesCtxDoesNotFitRendererCtx(ctxType, rendererCtxType, efanFile))
-				template 	:= efanFile.readAllStr
-				renderer	= compiler.compile(efanFile.normalize.uri, template, ctxType, viewHelpers.mixins)
-				fileCache[efanFile] = renderer
+			templateCtxType := template.templateMeta.ctxType
+			if (templateCtxType == null || !ctxType.fits(templateCtxType)) {
+				log.warn(LogMsgs.templatesCtxDoesNotFitTemplateCtx(ctxType, templateCtxType, efanFile))
+				templateStr := efanFile.readAllStr
+				template	= compiler.compile(efanFile.normalize.uri, templateStr, ctxType, viewHelpers.mixins)
+				fileCache[efanFile] = template
 			}
 		}
 	
-		return renderer
+		return template
 	}
 }
