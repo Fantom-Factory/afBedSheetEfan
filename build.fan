@@ -22,23 +22,20 @@ class Build : BuildPod {
 			"sys 1.0", 
 			"concurrent 1.0",
 
-			"afConcurrent 1.0.2+",
-			"afIoc 1.6.0+",
+			"afConcurrent 1.0.6+",
+			"afIoc 1.6.2+",
 			"afIocConfig 1.0.4+", 
-			"afPlastic 1.0.10+",
-			"afBedSheet 1.3.6+", 
-			"afEfan 1.4.0+",
+			"afPlastic 1.0.12+",
+			"afBedSheet 1.3.8+", 
+			"afEfan 1.4.0.1+",
 			
 			// for testing
-			"afBounce 1.0.0+",
+			"afBounce 1.0.2+",
 			"afButter 0.0.6+",
 			"afSizzle 1.0.0+"
 		]
 
 		srcDirs = [`test/unit-tests/`, `test/app-tests/`, `test/app/`, `fan/`, `fan/public/`, `fan/internal/`, `fan/internal/utils/`]
 		resDirs = [,]
-
-		docApi = true
-		docSrc = true
 	}
 }
