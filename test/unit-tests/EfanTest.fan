@@ -9,7 +9,7 @@ abstract internal class EfanTest : Test {
 	Type[]		modules	:= [IocConfigModule#, EfanModule#]
 	
 	override Void setup() {
-		reg = (Registry) RegistryBuilder().addModules(modules).build(["suppressStartupMsg":true]).startup
+		reg = (Registry) RegistryBuilder().addModules(modules).build.startup
 		reg.injectIntoFields(this)
 	}
 	
