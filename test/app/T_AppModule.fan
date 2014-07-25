@@ -10,7 +10,7 @@ internal const class T_AppModule {
 	}
 
 	@Contribute { serviceType=Routes# }
-	static Void contributeRoutes(OrderedConfig conf) {
+	static Void contributeRoutes(Configuration conf) {
 		conf.add(Route(`/efanOkay/*`, 	T_PageHandler#efanOkay))
 		conf.add(Route(`/efanErr`, 		T_PageHandler#efanErr))
 	}

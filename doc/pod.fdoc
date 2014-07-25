@@ -90,7 +90,7 @@ Contribute View Helpers in your 'AppModule':
 
 pre>
   @Contribute { serviceType=EfanViewHelpers# }
-  static Void contrib(OrderedConfig conf) {
+  static Void contrib(Configuration conf) {
     conf.add(XmlViewHelper#)
   }
 <pre
@@ -146,6 +146,10 @@ modifying template files in live.
 
 Release Notes [#releaseNotes]
 *****************************
+v1.0.14 [#v1.0.14]
+------------------
+ - Chg: Updated to [IoC 1.7.2]`pod:afIoc` and [BedSheet 1.3.12]`pod:afBedSheet`.
+
 v1.0.12 [#v1.0.12]
 ------------------
  - Chg: Updated to use [efan 1.4.0]`pod:afEfan`.

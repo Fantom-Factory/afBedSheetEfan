@@ -44,7 +44,7 @@ internal class TestEfanIntegration : Test {
 
 internal class T_EfanMod {
 	@Contribute { serviceType=ApplicationDefaults# }
-	static Void contributeApplicationDefaults(MappedConfig config) {
+	static Void contributeApplicationDefaults(Configuration config) {
 		config[BedSheetConfigIds.srcCodeErrPadding]	= 50
 	}	
 }
