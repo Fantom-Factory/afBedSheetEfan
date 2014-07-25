@@ -5,13 +5,13 @@ class Build : BuildPod {
 	new make() {
 		podName = "afBedSheetEfan"
 		summary = "A library for integrating Embedded Fantom (efan) templates with the BedSheet web framework"
-		version = Version("1.0.14")
+		version = Version("1.0.15")
 
 		meta = [	
 			"proj.name"		: "BedSheet efan",
 			"afIoc.module"	: "afBedSheetEfan::EfanModule",
 			"tags"			: "templating, web",
-			"repo.private"	: "false"
+			"repo.private"	: "true"
 		]
 
 		index = [	
