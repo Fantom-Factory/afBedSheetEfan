@@ -29,7 +29,7 @@ const mixin T_Vh4 {
 
 internal class T_Mod01 {
 	@Contribute { serviceType=EfanViewHelpers# }
-	static Void contrib(OrderedConfig config) {
+	static Void contrib(Configuration config) {
 		config.add(T_Vh3#)
 		config.add(T_Vh4#)
 	}

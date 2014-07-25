@@ -75,7 +75,7 @@ Contribute View Helpers in your `AppModule`:
 
 ```
 @Contribute { serviceType=EfanViewHelpers# }
-static Void contrib(OrderedConfig conf) {
+static Void contrib(Configuration conf) {
   conf.add(XmlViewHelper#)
 }
 ```

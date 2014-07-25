@@ -25,12 +25,12 @@ const class EfanModule {
 	}
 
 	@Contribute { serviceType=ActorPools# }
-	static Void contributeActorPools(MappedConfig config) {
-		config["afBedSheetEfan.fileCache"] = ActorPool()
+	static Void contributeActorPools(Configuration config) {
+		config["afBedSheetEfan.fileCache"] = ActorPool() { it.name = "afBedSheetEfan.fileCache" }
 	}
 
 	@Contribute { serviceType=FactoryDefaults# }
-	static Void contributeFactoryDefaults(MappedConfig config) {
+	static Void contributeFactoryDefaults(Configuration config) {
 		config[EfanConfigIds.templateTimeout]	= 10sec
 		config[EfanConfigIds.ctxVarName]		= "ctx"
 		config[EfanConfigIds.templateClassName]	= "EfanTemplateImpl"
