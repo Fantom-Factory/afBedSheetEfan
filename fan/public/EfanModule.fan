@@ -16,7 +16,7 @@ const class EfanModule {
 	}
 
 	@Build { serviceId="EfanCompiler" }
-	static EfanCompiler buildEfanCompiler(IocConfigSource configSrc, PlasticCompiler plasticCompiler) {
+	static EfanCompiler buildEfanCompiler(ConfigSource configSrc, PlasticCompiler plasticCompiler) {
 		// rely on afBedSheet to set srcCodePadding in PlasticCompiler (to be picked up by EfanCompiler) 
 		EfanCompiler(EfanEngine(plasticCompiler)) {
 			it.ctxVarName 			= configSrc.get(EfanConfigIds.ctxVarName, Str#)
