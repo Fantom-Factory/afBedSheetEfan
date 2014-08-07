@@ -5,13 +5,13 @@ class Build : BuildPod {
 	new make() {
 		podName = "afBedSheetEfan"
 		summary = "A library for integrating Embedded Fantom (efan) templates with the BedSheet web framework"
-		version = Version("1.0.15")
+		version = Version("1.0.16")
 
 		meta = [	
 			"proj.name"		: "BedSheet efan",
 			"afIoc.module"	: "afBedSheetEfan::EfanModule",
 			"tags"			: "templating, web",
-			"repo.private"	: "true"
+			"repo.private"	: "false"
 		]
 
 		index = [	
@@ -24,15 +24,15 @@ class Build : BuildPod {
 
 			// ---- Core ------------------------
 			"afConcurrent 1.0.6+",
-			"afIoc 1.7.2+",
-			"afIocConfig 1.0.10+", 
+			"afIoc 1.7.6+",
+			"afIocConfig 1.0.14+", 
 			"afPlastic 1.0.16+",
-			"afBedSheet 1.3.12+", 
+			"afBedSheet 1.3.14+", 
 			"afEfan 1.4.0.1+",
 			
 			// ---- Test ------------------------
-			"afBounce 1.0.8+",
-			"afButter 1.0.0+",
+			"afBounce 1.0.12+",
+			"afButter 1.0.2+",
 			"afSizzle 1.0.0+"
 		]
 
