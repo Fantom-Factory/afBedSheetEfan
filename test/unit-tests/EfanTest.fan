@@ -1,12 +1,12 @@
 using afEfan::EfanErr
 using afIoc::Registry
 using afIoc::RegistryBuilder
-using afIocConfig::IocConfigModule
+using afIocConfig::ConfigModule
 
 abstract internal class EfanTest : Test {
 	
 	Registry? 	reg
-	Type[]		modules	:= [IocConfigModule#, EfanModule#]
+	Type[]		modules	:= [ConfigModule#, EfanModule#]
 	
 	override Void setup() {
 		reg = (Registry) RegistryBuilder().addModules(modules).build.startup

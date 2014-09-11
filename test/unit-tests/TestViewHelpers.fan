@@ -6,7 +6,7 @@ internal class TestViewHelpers : EfanTest {
 	@Inject private EfanTemplates? efan
 	
 	override Void setup() {
-		modules = [IocConfigModule#, EfanModule#, T_Mod01#]
+		modules = [ConfigModule#, EfanModule#, T_Mod01#]
 		super.setup
 	}
 	

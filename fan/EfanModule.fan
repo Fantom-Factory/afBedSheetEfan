@@ -10,9 +10,9 @@ using afPlastic::PlasticCompiler
 @NoDoc
 const class EfanModule {
 
-	static Void bind(ServiceBinder binder) {
-		binder.bind(EfanTemplates#).withoutProxy	// has default method args
-		binder.bind(EfanViewHelpers#).withoutProxy
+	static Void defineServices(ServiceDefinitions defs) {
+		defs.add(EfanTemplates#)
+		defs.add(EfanViewHelpers#)
 	}
 
 	@Build { serviceId="EfanCompiler" }

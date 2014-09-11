@@ -26,14 +26,13 @@ const mixin EfanTemplates {
 }
 
 internal const class EfanTemplatesImpl : EfanTemplates {
-	private const static Log 	log := Utils.getLog(EfanTemplates#)
-	private const SynchronizedFileMap 	fileCache
+	@Inject private const Log 					log
+			private const SynchronizedFileMap 	fileCache
 	
-	
-	@Inject @Config { id="afEfan.templateTimeout" }
+	@Config { id="afEfan.templateTimeout" }
 	private const Duration templateTimeout
 	
-	@Inject	@Config { id="afEfan.ctxVarName" } 	
+	@Config { id="afEfan.ctxVarName" } 	
 	private const Str ctxVarName
 
 	@Inject	private const EfanViewHelpers 	viewHelpers
@@ -67,7 +66,7 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 		if (ctxType != null) {
 			templateCtxType := template.templateMeta.ctxType
 			if (templateCtxType == null || !ctxType.fits(templateCtxType)) {
-				log.warn(LogMsgs.templatesCtxDoesNotFitTemplateCtx(ctxType, templateCtxType, efanFile))
+				log.warn(templatesCtxDoesNotFitTemplateCtx(ctxType, templateCtxType, efanFile))
 				templateStr := efanFile.readAllStr
 				template	= compiler.compile(efanFile.normalize.uri, templateStr, ctxType, viewHelpers.mixins)
 				fileCache[efanFile] = template
@@ -76,4 +75,9 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 	
 		return template
 	}
+	
+	static Str templatesCtxDoesNotFitTemplateCtx(Type ctx, Type templateCtx, File file) {
+		"Ctx type ${ctx.qname} does not fit existing template ctx ${templateCtx.qname} - Recompiling ${file.normalize}"
+	}
+
 }
