@@ -4,9 +4,9 @@
 ** 
 ** pre>
 ** @Contribute { serviceType=ApplicationDefaults# } 
-** static Void configureAppDefaults(MappedConfig conf) {
+** static Void configureAppDefaults(Configuration config) {
 ** 
-**   conf[EfanConfigIds.templateTimeout] = 1min
+**   config[EfanConfigIds.templateTimeout] = 1min
 ** 
 ** }
 ** <pre
