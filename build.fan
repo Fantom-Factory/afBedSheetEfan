@@ -11,7 +11,7 @@ class Build : BuildPod {
 			"proj.name"		: "BedSheet efan",
 			"afIoc.module"	: "afBedSheetEfan::EfanModule",
 			"tags"			: "templating, web",
-			"repo.private"	: "true"
+			"repo.private"	: "false"
 		]
 
 		index = [	
@@ -28,7 +28,7 @@ class Build : BuildPod {
 			"afIocConfig 1.0.16+", 
 			"afPlastic 1.0.16+",
 			"afBedSheet 1.3.16+", 
-			"afEfan 1.4.0.1+",
+			"afEfan 1.4.2+",
 			
 			// ---- Test ------------------------
 			"afBounce 1.0.14+",
@@ -40,6 +40,7 @@ class Build : BuildPod {
 		resDirs = [,]
 	}
 	
+	@Target
 	override Void compile() {
 		// remove test pods from final build
 		testPods := "afBounce afButter afSizzle".split

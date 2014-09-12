@@ -55,8 +55,8 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 	
 	override EfanTemplate templateFromFile(File efanFile, Type? ctxType := null) {
 		if (!efanFile.exists)
-			throw IOErr(ErrMsgs.templatesFileNotFound(efanFile))
-
+			throw IOErr(templatesFileNotFound(efanFile))
+		
 		template := (EfanTemplate) fileCache.getOrAddOrUpdate(efanFile) |->Obj| {
 			templateStr	:= efanFile.readAllStr
 			template	:= compiler.compile(efanFile.normalize.uri, templateStr, ctxType, viewHelpers.mixins)
@@ -76,8 +76,11 @@ internal const class EfanTemplatesImpl : EfanTemplates {
 		return template
 	}
 	
+	static Str templatesFileNotFound(File file) {
+		"File not found: ${file.normalize}"
+	}
+
 	static Str templatesCtxDoesNotFitTemplateCtx(Type ctx, Type templateCtx, File file) {
 		"Ctx type ${ctx.qname} does not fit existing template ctx ${templateCtx.qname} - Recompiling ${file.normalize}"
 	}
-
 }
